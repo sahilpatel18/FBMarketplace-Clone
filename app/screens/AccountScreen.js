@@ -6,9 +6,16 @@ import ListItem from '../components/ListItem'
 export default function AccountScreen() {
     return (
         <Screen>
-            <ListItem  />
+            <ListItem 
+            title='Sahil Patel'
+            subTitle='sahilwebdev@gmail.com'
+            image={require('../assets/userimg.jpg')}
+            
+            />
         </Screen>
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    
+})
