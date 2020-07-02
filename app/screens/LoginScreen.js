@@ -10,6 +10,7 @@ import AppText from "../components/AppText";
 import ErrorMessage from "../components/ErrorMessage";
 import AppFormField from "../components/AppFormField";
 import SubmitButton from "../components/SubmitButton";
+import AppForm from "../components/AppForm";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -20,35 +21,31 @@ export default function LoginScreen(props) {
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-      <Formik
+      <AppForm
         initialValues={{ eamil: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              placeholder='Email'
-              icon='email'
-              autoCorrect={false}
-              name='email'
-              keyboardType='email-address'
-              autoCapitalize='none'
-              textContentType='emailAddress'
-            />
-            <AppFormField
-              placeholder='Password'
-              name='password'
-              icon='lock'
-              autoCorrect={false}
-              secureTextEntry
-              autoCapitalize='none'
-              textContentType='password'
-            />
-            <SubmitButton title='login' />
-          </>
-        )}
-      </Formik>
+        <AppFormField
+          placeholder='Email'
+          icon='email'
+          autoCorrect={false}
+          name='email'
+          keyboardType='email-address'
+          autoCapitalize='none'
+          textContentType='emailAddress'
+        />
+        <AppFormField
+          placeholder='Password'
+          name='password'
+          icon='lock'
+          autoCorrect={false}
+          secureTextEntry
+          autoCapitalize='none'
+          textContentType='password'
+        />
+        <SubmitButton title='login' />
+      </AppForm>
     </Screen>
   );
 }
