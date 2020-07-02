@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { Text, View, FlatList} from "react-native";
-import ListItem from "../components/ListItem";
+import ListItem from "../components/lists/ListItem";
 import Constants from "expo-constants";
 import Screen from "../components/Screen";
-import ListItemSeperator from "../components/ListItemSeperator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemSeperator from "../components/lists/ListItemSeperator";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
-    image: require("../assets/userimg.jpg"),
+    title: "Red Jacket for sale. CHEAP ed Jacket for sale. CHEAPed Jacket for sale. CHEAPed Jacket for sale. CHEAP",
+    description: "This jacket is red with 4 pockets. Cotton zip up polyester",
+    image: require("../assets/circle.jpg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/userimg.jpg"),
+    title: "How much for the shoesan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in go?",
+    description: "can i get more details for the shoes? are they in good shape from the inside? filer text an i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in go",
+    image: require("../assets/circle2.jpg"),
   },
 ];
 
@@ -52,8 +52,9 @@ function MessagesScreen(props) {
             setMessages([
                 {
                     id: 2,
-                    title: "T2",
-                    description: "D2",
+                    title: "How much for the shoesan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in go?",
+                    description: "can i get more details for the shoes? are they in good shape from the inside? filer text an i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in goan i get more details for the shoes? are they in go",
+                    description: "how much are you selling the item for? i would love to know!",
                     image: require("../assets/userimg.jpg"),
                   },
             ])
