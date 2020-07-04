@@ -29,40 +29,15 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import AppText from "./app/components/Text";
 import * as ImagePicker from "expo-image-picker";
-import * as Permissions from 'expo-permissions'
+import * as Permissions from "expo-permissions";
 import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
-
-  const [imageUri, setImageUri] = useState()
-
-  const requestPermission = async () => {
-    const result = await ImagePicker.requestCameraRollPermissionsAsync();
-    if (!result.granted)
-      alert("YOU NEED TO ALLOW US ACCESS TO YOUR CAMERA ROLL");
-  };
-  useEffect(() => {
-    requestPermission();
-  }, []);
-
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync()
-      if(!result.cancelled)
-      setImageUri(result.uri)
-   
-    } catch (error) {
-      console.log('error reading image');
-      
-    }
-    
-  }
+  
+  
 
   return (
-<Screen>
-  <Button title='Select Image' onPress={selectImage} />
-  <Image source={{uri: imageUri}} style={{width: 200, height: 200}} />
-  <ImageInput imageUri={imageUri} />
-</Screen>
+    <ListingEditScreen />
   );
 }
