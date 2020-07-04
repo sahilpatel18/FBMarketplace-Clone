@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { SafeAreaView, View, Text, TextInput, Switch } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  Switch,
+  ImagePickerIOS,
+  Picker,
+} from "react-native";
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 
@@ -18,11 +26,17 @@ import LoginScreen from "./app/screens/LoginScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import AppText from "./app/components/Text";
-
+import * as ImagePicker from "expo-image-picker";
 
 export default function App() {
-  return (
-    <ListingEditScreen />
-  )
+  const requestPermission = async () => {
+    const result = await ImagePicker.requestCameraRollPermissionsAsync();
+    if (!result.granted)
+      alert("YOU NEED TO ALLOW US ACCESS TO YOUR CAMERA ROLL");
+  };
+  useEffect(() => {
+    requestPermission();
+  }, []);
 
+  return <Screen></Screen>;
 }
