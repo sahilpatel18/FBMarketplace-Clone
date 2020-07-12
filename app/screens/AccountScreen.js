@@ -4,8 +4,8 @@ import { StyleSheet, Text, View, FlatList } from "react-native";
 import Screen from "../components/Screen";
 import ListItem from "../components/lists/ListItem";
 import colors from "../config/colors";
-import Icon from '../components/Icon'
-import ListItemSeperatorComponent from '../components/lists/ListItemSeperator'
+import Icon from "../components/Icon";
+import ListItemSeperatorComponent from "../components/lists/ListItemSeperator";
 import AuthContext from "../auth/context";
 
 const menuItems = [
@@ -22,12 +22,12 @@ const menuItems = [
       name: "email",
       backgroundColor: colors.secondary,
     },
-    targetScreem: 'Messages'
+    targetScreem: "Messages",
   },
 ];
 
-export default function AccountScreen({navigation}) {
- const {user} = useContext(AuthContext)
+export default function AccountScreen({ navigation }) {
+  const { user, setUser } = useContext(AuthContext);
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -54,11 +54,14 @@ export default function AccountScreen({navigation}) {
               }
               onPress={() => navigation.navigate(item.targetScreem)}
             />
-            
           )}
         />
       </View>
-      <ListItem title='Log Out' IconComponent={<Icon name='logout' backgroundColor='#ffe66d' />} />
+      <ListItem
+        title='Log Out'
+        onPress={() => setUser(null)}
+        IconComponent={<Icon name='logout' backgroundColor='#ffe66d' />}
+      />
     </Screen>
   );
 }
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 20,
   },
-  screen:{
-      backgroundColor: colors.light
-  }
+  screen: {
+    backgroundColor: colors.light,
+  },
 });
