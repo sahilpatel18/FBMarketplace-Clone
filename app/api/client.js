@@ -3,11 +3,11 @@ import cache from "../utility/cache";
 import authStorage from "../auth/storage";
 
 const apiClient = create({
-  baseURL: "http://192.168.1.14:9001/api",
+  baseURL: "http://192.168.0.14:9001/api",
 });
 
 apiClient.addAsyncRequestTransform(async (request) => {
-  const authToken = awaitauthStorage.getToken();
+  const authToken = await authStorage.getToken();
   if (!authToken) return;
   request.headers["x-auth-token"] = authToken;
 });
